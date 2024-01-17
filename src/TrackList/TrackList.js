@@ -3,10 +3,21 @@ import Track from "../Track/Track";
 
 import "./TrackList.css";
 
-const TrackList = () => {
+const TrackList = (props) => {
+
+    if (!props.tracks) {
+        return null;
+    }
+
     return (
         <div className="TrackList">
-            <Track />
+            {props.tracks.map(track => (
+                <Track
+                    key={track.id}
+                    track={track.name}
+                    artist={track.artist}
+                 />
+            ))}
         </div>
     );
 };

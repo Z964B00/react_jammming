@@ -13,7 +13,7 @@ function App() {
       </div>
       <div className="ResultsandPlaylist">
         <SearchResults />
-        <PlayList/>
+        <PlayList />
       </div>
     </div>
   );

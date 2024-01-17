@@ -2,10 +2,10 @@ import React from "react";
 
 import "./Track.css";
 
-const Track = () => {
+const Track = (props) => {
     return (
         <div className="TrackEntry">
-            <h3 className="Track">Track Name | Artist Name</h3>
+            <h3 className="Track">{props.track} | {props.artist}</h3>
         </div>
     );
 };
