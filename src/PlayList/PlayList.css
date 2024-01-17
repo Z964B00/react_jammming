@@ -4,6 +4,33 @@
     overflow-y: scroll;
     padding: .88rem;
   }
+
+  .PlaylistTitle {
+    display: flex;
+    justify-content: center;
+  }
+
+  .Playlist input {
+    display: block;
+    font-size: 1.5em;
+    text-align: center;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.26em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: inherit;
+    font-weight: bold;
+  }
+
+  .Playlist input:focus {
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
   
   .Playlist button {
     cursor: pointer;
