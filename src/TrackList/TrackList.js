@@ -4,6 +4,7 @@ import Track from "../Track/Track";
 import "./TrackList.css";
 
 const TrackList = (props) => {
+    console.log("onAdd in TrackList:", typeof props.onAdd);
 
     if (!props.tracks) {
         return null;
@@ -13,9 +14,11 @@ const TrackList = (props) => {
         <div className="TrackList">
             {props.tracks.map(track => (
                 <Track
+                    track={track}
                     key={track.id}
-                    track={track.name}
+                    title={track.name}
                     artist={track.artist}
+                    onAdd={props.onAdd}
                  />
             ))}
         </div>
