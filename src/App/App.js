@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import './App.css';
 
 import SearchBar from "../SearchBar/SearchBar";
@@ -41,11 +41,18 @@ function App() {
       }
   }
 
-  const addToPlaylist = (track) => {
-      if(!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
-          setPlaylistTracks([...playlistTracks, track]);
-      }
-  }
+  const addToPlaylist = useCallback((track) => {
+    if(!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
+      setPlaylistTracks([...playlistTracks, track]);
+    }
+  }, [playlistTracks]);
+
+
+  const removeFromPlaylist = useCallback((track) => {
+    setPlaylistTracks((prevTracks) => 
+    prevTracks.filter((currentTrack) => currentTrack.id !== track.id)
+    );
+  }, []);
 
   return (
     <div className="App">
@@ -61,6 +68,7 @@ function App() {
           playlistTitleColor={playlistTitleColor}
           onTitleChange={handleTitleChange}
           onClick={handleInputClick}
+          onRemove={removeFromPlaylist}
         />
       </div>
     </div>

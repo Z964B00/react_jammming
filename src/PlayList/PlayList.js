@@ -20,7 +20,11 @@ const PlayList= (props) => {
                     onTitleChange={handleTitleChange}
                     />
             </div>
-            <TrackList tracks={props.playlistTracks} />
+            <TrackList 
+                tracks={props.playlistTracks} 
+                isRemoval={true}
+                onRemove={props.onRemove}
+            />
             <button className="SaveButton">Save to Spotify</button>
         </div>
     );

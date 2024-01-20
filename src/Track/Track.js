@@ -1,17 +1,25 @@
-import React from "react";
+import React, {useCallback } from "react";
 
 import "./Track.css";
 
 const Track = (props) => {
 
-    const addTrack = () => {
-        console.log("Button clicked");
-        props.onAdd(props.track)
-      };
+    const addTrack = useCallback((event) => {
+        props.onAdd(props.track);
+    }, [props.onAdd, props.track])
+
+    const removeTrack = useCallback((event) => {
+        props.onRemove(props.track);
+    }, [props.onRemove, props.track])
 
     const actionButton = () => {
+        if (props.isRemoval) {
+            return (
+                <button className="TrackAction" onClick={removeTrack}>Remove</button>
+            );
+        }
         return (
-            <button className="TrackAction" onClick={addTrack}>+</button>
+            <button className="TrackAction" onClick={addTrack}>Add</button>
         );
     };
 
