@@ -28,12 +28,11 @@ function App() {
     setSearchResults(newResults);
   };
 
-  const handleTitleChange = (event) => {
-    const newTitle = event.target.value;
-    setPlaylistTitle(newTitle);
-    setPlaylistTitleColor(newTitle ? "black" : "grey");
-  };
-
+  const handleTitleChange = useCallback((title) => {
+    setPlaylistTitle(title);
+    setPlaylistTitleColor(title ? "black" : "grey");
+  }, []);
+  
   const handleInputClick = () => {
       if (playlistTitle === "") {
           setPlaylistTitle("");
@@ -56,6 +55,8 @@ function App() {
 
   const savePlaylist = useCallback((track) => {
     const trackUris = playlistTracks.map((track) => track.uri);
+    setPlaylistTitle("");
+    setPlaylistTracks([]);
     console.log(trackUris);
   },
   [playlistTitle, playlistTracks]);

@@ -17,7 +17,8 @@ const PlayList= (props) => {
                 <input 
                     type="text"
                     placeholder="My Playlist Title"
-                    onTitleChange={handleTitleChange}
+                    value={props.playlistTitle}
+                    onChange={handleTitleChange}
                     />
             </div>
             <TrackList 
