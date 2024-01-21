@@ -54,6 +54,12 @@ function App() {
     );
   }, []);
 
+  const savePlaylist = useCallback((track) => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    console.log(trackUris);
+  },
+  [playlistTitle, playlistTracks]);
+
   return (
     <div className="App">
       <h1>Spotify Playlist Constructor</h1>
@@ -69,6 +75,7 @@ function App() {
           onTitleChange={handleTitleChange}
           onClick={handleInputClick}
           onRemove={removeFromPlaylist}
+          onSave={savePlaylist}
         />
       </div>
     </div>
