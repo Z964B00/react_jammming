@@ -4,6 +4,7 @@ import './App.css';
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import PlayList from "../PlayList/PlayList";
+import Spotify from "../util/Spotify";
 
 function App() {
   const [ searchResults, setSearchResults ] = useState([
