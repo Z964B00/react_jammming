@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    const [term, setTerm] = useState('');
+
+    const handleTermChange = useCallback((event) => {
+        setTerm(event.target.value);
+    }, []);
+
+    const search = useCallback(() => {
+        props.onSearch(term);
+    }, [props.onSearch, term]);
+
     return (
         <div className="SearchBar">
-            <input placeholder="What would you like to listen to?"></input>
-            <button className="SearchButton">Search</button>
+            <input placeholder="What would you like to listen to?" onChange={handleTermChange}></input>
+            <button className="SearchButton" onClick={search}>Search</button>
         </div>
     );
 };
